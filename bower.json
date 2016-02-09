@@ -1,0 +1,22 @@
+{
+  "name": "swap-md-paint",
+  "version": "0.1.0",
+  "authors": [
+    "Rémi Becheras <rbecheras@sirap.fr>"
+  ],
+  "description": "An angular material plugin allowing to apply the configured theme&#39;s palette colors to custom elements.",
+  "main": "swap-md-paint.js",
+  "keywords": [
+    "bower",
+    "component",
+    "bower","component"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
