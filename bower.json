@@ -9,7 +9,8 @@
   "keywords": [
     "bower",
     "component",
-    "bower","component"
+    "bower",
+    "component"
   ],
   "license": "MIT",
   "ignore": [
@@ -18,5 +19,8 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "angular-material": "~1.0.5"
+  }
 }
