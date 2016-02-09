@@ -4,6 +4,11 @@ module.exports = function (grunt) {
 
     grunt.initConfig({
       jshint: {
+        options: {
+          globals: {
+            angular: true
+          }
+        },
         all: ['gruntfile.js', 'swap-md-paint.js']
       },
       uglify: {
