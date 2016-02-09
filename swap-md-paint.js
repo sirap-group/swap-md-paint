@@ -6,9 +6,9 @@
  *
  */
 
-'use strict';
 
 (function(){
+  'use strict';
 
   function setRGB(element,styled,themeProvider,input,directiveName) {
 
@@ -64,7 +64,6 @@
   }
 
   function reportError(errString,name,input) {
-    'use strict';
     console.error(errString,name,input);
     console.log('usage %s="[theme] intention [hue]"',name);
     console.log('acceptable intentions : primary,accent,warn,background');
@@ -79,7 +78,7 @@
       link     : function(scope, element, attributes) {
         setRGB(element,'color',SwapMd.themeColors,attributes.swapMdPaintFg,'swap-md-paint-fg');
       }
-    }
+    };
   })
 
   .directive('swapMdPaintBg',function(SwapMd) {
@@ -88,7 +87,7 @@
       link     : function(scope, element, attributes) {
         setRGB(element,'background-color',SwapMd.themeColors,attributes.swapMdPaintBg,'swap-md-paint-bg');
       }
-    }
+    };
   })
 
   .directive('swapMdPaintSvg',function(SwapMd) {
@@ -97,7 +96,7 @@
       link     : function(scope, element, attributes) {
         setRGB(element,'fill',SwapMd.themeColors,attributes.swapMdPaintSvg,'swap-md-paint-svg');
       }
-    }
+    };
   })
 
   // Couldn't get access to _PALETTES any other way?
@@ -106,9 +105,9 @@
       $get : function() {
         return {
           themeColors : $mdThemingProvider
-        }
+        };
       }
-    }
+    };
   });
 
 })();
