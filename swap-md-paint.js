@@ -70,7 +70,7 @@
     console.log('acceptable hues       : default,hue-1,hue-2,hue-3');
   }
 
-  angular.module('swapMdUtil', ['ngMaterial'])
+  angular.module('swapMdPaint', ['ngMaterial'])
 
   .directive('swapMdPaintFg',function(SwapMd) {
     return {
