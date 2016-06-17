@@ -25,7 +25,8 @@
       primary:'primary',
       accent:'accent',
       warn:'warn',
-      background:'background'
+      background:'background',
+      foreground:'primary'
     };
     var hues = {
       'default':'default',
@@ -34,13 +35,17 @@
       'hue-3':'hue-3'
     };
 
+    var contrast = false
+
     // Do our best to parse out the attributes
     angular.forEach(input.split(' '), function(value, key) {
-      if (0 === key && 'default' === value) {
+      if (0 === key) {
         themeName = value;
       } else
       if (intentions[value]) {
-        intentionName = value;
+        if(value === 'foreground')
+          contrast = true
+        intentionName = intentions[value];
       } else if (hues[value]) {
         hueName = value;
       } else if (shades[value]) {
@@ -55,7 +60,8 @@
           hueKey = intention.hues[hueName];
         }
         if ((hue = themeProvider._PALETTES[intention.name][hueKey]) ) {
-          element.css(styled,'rgb('+hue.value[0]+','+hue.value[1]+','+hue.value[2]+')');
+          var color = hue[contrast ? 'contrast' : 'value']
+          element.css(styled,'rgb('+color[0]+','+color[1]+','+color[2]+')');
           return;
         }
       }
@@ -66,7 +72,7 @@
   function reportError(errString,name,input) {
     console.error(errString,name,input);
     console.log('usage %s="[theme] intention [hue]"',name);
-    console.log('acceptable intentions : primary,accent,warn,background');
+    console.log('acceptable intentions : primary,accent,warn,background,foreground');
     console.log('acceptable hues       : default,hue-1,hue-2,hue-3');
   }
 
