@@ -35,7 +35,7 @@
       'hue-3':'hue-3'
     };
 
-    var contrast = false
+    var contrast = false;
 
     // Do our best to parse out the attributes
     angular.forEach(input.split(' '), function(value, key) {
@@ -44,7 +44,7 @@
       } else
       if (intentions[value]) {
         if(value === 'foreground')
-          contrast = true
+          contrast = true;
         intentionName = intentions[value];
       } else if (hues[value]) {
         hueName = value;
@@ -60,7 +60,7 @@
           hueKey = intention.hues[hueName];
         }
         if ((hue = themeProvider._PALETTES[intention.name][hueKey]) ) {
-          var color = hue[contrast ? 'contrast' : 'value']
+          var color = hue[contrast ? 'contrast' : 'value'];
           element.css(styled,'rgb('+color[0]+','+color[1]+','+color[2]+')');
           return;
         }
