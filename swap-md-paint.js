@@ -10,7 +10,15 @@
 (function(){
   'use strict';
 
+  var cache = {};
+
   function setRGB(element,styled,themeProvider,input,directiveName) {
+
+    if(typeof cache[input] !== 'undefined') {
+      var style = cache[input];
+      element.css(styled, style);
+      return;
+    }
 
     var themeName     = 'default';
     var hueName       = 'default';
@@ -61,7 +69,9 @@
         }
         if ((hue = themeProvider._PALETTES[intention.name][hueKey]) ) {
           var color = hue[contrast ? 'contrast' : 'value'];
-          element.css(styled,'rgb('+color[0]+','+color[1]+','+color[2]+')');
+          var style = 'rgb('+color[0]+','+color[1]+','+color[2]+')';
+          cache[input] = style;
+          element.css(styled, style);
           return;
         }
       }
